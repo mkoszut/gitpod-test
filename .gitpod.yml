@@ -1,7 +1,10 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - init: echo 'init script' # runs during prebuild
-    command: echo 'start script'
+  - name: install kind
+    command: |
+      curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.17.0/kind-linux-amd64
+      chmod +x ./kind
+      sudo mv ./kind /usr/local/bin/kind
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
